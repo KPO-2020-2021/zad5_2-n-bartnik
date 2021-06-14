@@ -49,6 +49,9 @@ src/Matrix3x3.cpp
  src/lacze_do_gnuplota.cpp
   src/Scene.cpp
     src/Ground.cpp
+    src/Hill.cpp
+src/Pyramid.cpp
+src/Prism2.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp

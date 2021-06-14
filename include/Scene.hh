@@ -3,8 +3,8 @@
 #include "Drone.hh"
 #include "Prism.hh"
 #include "Hill.hh"
-#include "Gora.hh"
-#include "Graniastoslup.hh"
+#include "Pyramid.hh"
+#include "Prism2.hh"
 #include "lacze_do_gnuplota.hh"
 #include "Ground.hh"
 #include <list>

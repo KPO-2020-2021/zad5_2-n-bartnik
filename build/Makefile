@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nina/zad5_1-n-bartnik
+CMAKE_SOURCE_DIR = /home/nina/zad5_2-n-bartnik
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nina/zad5_1-n-bartnik/build
+CMAKE_BINARY_DIR = /home/nina/zad5_2-n-bartnik/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,9 +91,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nina/zad5_1-n-bartnik/build/CMakeFiles /home/nina/zad5_1-n-bartnik/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nina/zad5_2-n-bartnik/build/CMakeFiles /home/nina/zad5_2-n-bartnik/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nina/zad5_1-n-bartnik/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nina/zad5_2-n-bartnik/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -672,6 +672,33 @@ src/Ground.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Ground.cpp.s
 .PHONY : src/Ground.cpp.s
 
+src/Hill.o: src/Hill.cpp.o
+
+.PHONY : src/Hill.o
+
+# target to build an object file
+src/Hill.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Hill.cpp.o
+.PHONY : src/Hill.cpp.o
+
+src/Hill.i: src/Hill.cpp.i
+
+.PHONY : src/Hill.i
+
+# target to preprocess a source file
+src/Hill.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Hill.cpp.i
+.PHONY : src/Hill.cpp.i
+
+src/Hill.s: src/Hill.cpp.s
+
+.PHONY : src/Hill.s
+
+# target to generate assembly for a file
+src/Hill.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Hill.cpp.s
+.PHONY : src/Hill.cpp.s
+
 src/Matrix3x3.o: src/Matrix3x3.cpp.o
 
 .PHONY : src/Matrix3x3.o
@@ -725,6 +752,60 @@ src/Prism.s: src/Prism.cpp.s
 src/Prism.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Prism.cpp.s
 .PHONY : src/Prism.cpp.s
+
+src/Prism2.o: src/Prism2.cpp.o
+
+.PHONY : src/Prism2.o
+
+# target to build an object file
+src/Prism2.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Prism2.cpp.o
+.PHONY : src/Prism2.cpp.o
+
+src/Prism2.i: src/Prism2.cpp.i
+
+.PHONY : src/Prism2.i
+
+# target to preprocess a source file
+src/Prism2.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Prism2.cpp.i
+.PHONY : src/Prism2.cpp.i
+
+src/Prism2.s: src/Prism2.cpp.s
+
+.PHONY : src/Prism2.s
+
+# target to generate assembly for a file
+src/Prism2.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Prism2.cpp.s
+.PHONY : src/Prism2.cpp.s
+
+src/Pyramid.o: src/Pyramid.cpp.o
+
+.PHONY : src/Pyramid.o
+
+# target to build an object file
+src/Pyramid.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Pyramid.cpp.o
+.PHONY : src/Pyramid.cpp.o
+
+src/Pyramid.i: src/Pyramid.cpp.i
+
+.PHONY : src/Pyramid.i
+
+# target to preprocess a source file
+src/Pyramid.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Pyramid.cpp.i
+.PHONY : src/Pyramid.cpp.i
+
+src/Pyramid.s: src/Pyramid.cpp.s
+
+.PHONY : src/Pyramid.s
+
+# target to generate assembly for a file
+src/Pyramid.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Pyramid.cpp.s
+.PHONY : src/Pyramid.cpp.s
 
 src/Scene.o: src/Scene.cpp.o
 
@@ -917,12 +998,21 @@ help:
 	@echo "... src/Ground.o"
 	@echo "... src/Ground.i"
 	@echo "... src/Ground.s"
+	@echo "... src/Hill.o"
+	@echo "... src/Hill.i"
+	@echo "... src/Hill.s"
 	@echo "... src/Matrix3x3.o"
 	@echo "... src/Matrix3x3.i"
 	@echo "... src/Matrix3x3.s"
 	@echo "... src/Prism.o"
 	@echo "... src/Prism.i"
 	@echo "... src/Prism.s"
+	@echo "... src/Prism2.o"
+	@echo "... src/Prism2.i"
+	@echo "... src/Prism2.s"
+	@echo "... src/Pyramid.o"
+	@echo "... src/Pyramid.i"
+	@echo "... src/Pyramid.s"
 	@echo "... src/Scene.o"
 	@echo "... src/Scene.i"
 	@echo "... src/Scene.s"

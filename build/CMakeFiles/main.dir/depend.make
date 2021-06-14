@@ -5,8 +5,11 @@ CMakeFiles/main.dir/app/main.cpp.o: ../include/Cuboid.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/Drone.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/GeoSolid.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/Ground.hh
+CMakeFiles/main.dir/app/main.cpp.o: ../include/Hill.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/Matrix3x3.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/Prism.hh
+CMakeFiles/main.dir/app/main.cpp.o: ../include/Prism2.hh
+CMakeFiles/main.dir/app/main.cpp.o: ../include/Pyramid.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/Scene.hh
 CMakeFiles/main.dir/app/main.cpp.o: ../include/example.h
 CMakeFiles/main.dir/app/main.cpp.o: ../include/lacze_do_gnuplota.hh

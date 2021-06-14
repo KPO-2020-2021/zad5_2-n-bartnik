@@ -24,19 +24,9 @@ matrix.hh
 cmath
 -
 
-../include/Prism.hh
-vector.hh
-../include/vector.hh
+../include/Prism2.hh
+GeoSolid.hh
 ../include/GeoSolid.hh
-../include/GeoSolid.hh
-size.hh
-../include/size.hh
-stdlib.h
--
-fstream
--
-string
--
 
 ../include/matrix.hh
 size.hh
@@ -62,7 +52,7 @@ cmath
 vector.hh
 ../include/vector.hh
 
-/home/nina/zad5_1-n-bartnik/src/Prism.cpp
-Prism.hh
-/home/nina/zad5_1-n-bartnik/src/Prism.hh
+/home/nina/zad5_2-n-bartnik/src/Prism2.cpp
+Prism2.hh
+/home/nina/zad5_2-n-bartnik/src/Prism2.hh
 

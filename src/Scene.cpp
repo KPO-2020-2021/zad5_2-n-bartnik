@@ -15,13 +15,30 @@ Vector<3> srod;
     plaszczyzna = new Ground(kwadrat, 20);
 
 
-/*ustalanie losowanej pozycji bloku Hill*/
+/*ustalanie losowanej pozycji klasy Hill*/
     srod[0]=rand()%400-200;
     srod[1]=rand()%400-200;
-    srod[2]=25;
+    srod[2]=50;
 
     /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
     lista.push_front(std::make_shared<Hill>(srod, 100, 50, 100, "../datasets/blok1.dat"));
+
+
+   /*ustalanie losowanej pozycji klasy Pyramid*/
+    srod[0]=rand()%400-200;
+    srod[1]=rand()%400-200;
+    srod[2]=50;
+
+    /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
+    lista.push_front(std::make_shared<Pyramid>(srod, 100, 50, 100, "../datasets/blok2.dat"));
+
+/*ustalanie losowanej pozycji klasy Prism2*/
+    srod[0]=rand()%400-200;
+    srod[1]=rand()%400-200;
+    srod[2]=50;
+
+    /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
+    lista.push_front(std::make_shared<Pyramid>(srod, 100, 50, 100, "../datasets/blok3.dat"));
 
 /*Zwracanie wskaźnika do peirwszego elementu listy. Dzięki inkrementacji możliwe jest przejście po wszystkich elementach*/
  for( std::list<std::shared_ptr<GeoSolid>>::const_iterator i= lista.begin(); i!=lista.end(); i++)
