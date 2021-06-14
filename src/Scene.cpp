@@ -3,15 +3,33 @@ using namespace std;
 
 Scene::Scene()
 {
+Vector<3> srod;
 
     Lacze.ZmienTrybRys(PzG::TR_3D);
-    Lacze.UstawZakresY(-155, 155);
-    Lacze.UstawZakresX(-155, 155);
-    Lacze.UstawZakresZ(-155, 155);
+    Lacze.UstawZakresY(-300, 300);
+    Lacze.UstawZakresX(-300, 300);
+    Lacze.UstawZakresZ(-300, 300);
 
-    double tab_wymiary[3] = {310, 310, 0};
+    double tab_wymiary[3] = {600, 600, 0};
     Vector<3> kwadrat(tab_wymiary);
     plaszczyzna = new Ground(kwadrat, 20);
+
+
+/*ustalanie losowanej pozycji bloku Hill*/
+    srod[0]=rand()%400-200;
+    srod[1]=rand()%400-200;
+    srod[2]=25;
+
+    /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
+    lista.push_front(std::make_shared<Hill>(srod, 100, 50, 100, "../datasets/blok1.dat"));
+
+/*Zwracanie wskaźnika do peirwszego elementu listy. Dzięki inkrementacji możliwe jest przejście po wszystkich elementach*/
+ for( std::list<std::shared_ptr<GeoSolid>>::const_iterator i= lista.begin(); i!=lista.end(); i++)
+  {
+      Lacze.DodajNazwePliku((*i)->wez_nazwe().c_str(), PzG::RR_Ciagly, 2);
+    (*i)->zapisz(); //zapisuje elements
+  }
+  
     Lacze.DodajNazwePliku(plaszczyzna->wez_nazwe().c_str(), PzG::RR_Ciagly, 2);
     plaszczyzna->zapisz();
     for (int i = 0; i < 2; i++)

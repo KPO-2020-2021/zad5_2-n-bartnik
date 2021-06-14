@@ -20,6 +20,8 @@
 
 int main()
 {
+
+     srand(time(NULL));
      Vector3D wektor;
    Scene scena;
    wektor.zliczanie();
