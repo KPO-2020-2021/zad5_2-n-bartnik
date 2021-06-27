@@ -87,15 +87,17 @@ void Drone::sterowanie()
     char opcja;
 
     zapisz();
-    cout << "Wybierz opcje :";
+    cout << "Wybierz opcje :" <<endl;
     cout << "p - przesun drona o zadany wektor"<<endl;
     cout << "o - obroc drona o zadany kat (w stopniach)"<<endl;
-    cout << "m - menu"<<endl;
+    cout << "m - menu" <<endl;
+    //cout << "d - dodaj element" <<endl;
+    cout << "k - koniec" <<endl;
     cin >> opcja;
     switch (opcja)
     {
     case 'p':
-        cout << "Podaj wektor przelotu :";
+        cout << "Podaj wektor przelotu :" <<endl;
         cin >> droga;
         prosta(droga);
         Lacze.DodajNazwePliku("../datasets/droga.dat", PzG::RR_Ciagly, 2);
@@ -172,7 +174,7 @@ void Drone::sterowanie()
 
         } break;
         case 'k':
-        {} break;
+        break;
     default:
     {
     cout<<"Bledna opcja"<<endl;}

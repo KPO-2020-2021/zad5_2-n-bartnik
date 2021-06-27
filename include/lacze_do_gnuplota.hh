@@ -4,6 +4,7 @@
 #include <list>
 #include <vector>
 
+
 #ifdef __GNUG__
 #pragma interface
 #endif
@@ -653,6 +654,21 @@ class LaczeDoGNUPlota {
    *                 zainicjalizowane lub gdy lista plików jest pusta lub
    *                 też gdy nie można otworzyć pliku do zapisu.
    */
+
+  enum TypDostepuDoZasobu { 
+      /*!
+       * - dostęp tylko z poziomu pojedynczego łącza. 
+       * Dane z pliku będą wizualizowane tylko w jednym okienku graficznym
+       * odpowiadające danym łączu.
+       */
+      DZ_Lokalny, 
+      /*!
+       * - dostęp ze poziomu wszystkich łączy. 
+       * Dane z pliku będą wizualizowane we okienkach graficznych
+       * odpowiadającym utworzonym łączom.
+       */
+      DZ_Globalny 
+   };
   bool RysujDoPliku(const char *NazwaPliku);
   /*!
    *  \brief  Inicjalizuje połączenie z programem \e gnuplot.
@@ -668,6 +684,25 @@ class LaczeDoGNUPlota {
    *  \retval false - gdy proces inicjalizacji połączenia zakończył się
    *               niepowodzeniem.
    */
+
+
+  bool UsunNazwePliku( const InfoPlikuDoRysowania* wInfoPliku,
+		       TypDostepuDoZasobu          Dostep = DZ_Lokalny
+		     );
+
+  /*!
+   * \brief Usuwa z listy nazw plików z danymi do rysowania usuwa wybraną nazwę.
+   */
+  bool UsunNazwePliku( const char          *sNazwaPliku,
+		       TypDostepuDoZasobu   Dostep = DZ_Lokalny
+		      );
+
+  /*!
+   * \brief Usuwa z listy nazw plików z danymi do rysowania usuwa wybraną nazwę.
+   */
+  bool UsunNazwePliku( const std::string   &NazwaPliku,
+		       TypDostepuDoZasobu   Dostep = DZ_Lokalny
+		     );
   bool Inicjalizuj();
   /*!
    *  \brief Usuwa ostatnią nazwę pliku.

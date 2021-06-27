@@ -15,7 +15,8 @@ class Scene
 
 
 protected:
-std::list<shared_ptr<GeoSolid>> lista; //lista elementow przechowujaca inteligentne wskazniki typu bryla
+int numer_przeszkody;
+std::list<shared_ptr<GeoSolid>> lista; //lista elementow przechowujaca inteligentne wskazniki typu geosolid
     PzG::LaczeDoGNUPlota Lacze;
     Drone *TabDronow[2];
     Ground *plaszczyzna;
@@ -25,6 +26,7 @@ public:
     Scene();
     void Rysuj();
     bool menu();
+    /*destruktor*/
     ~Scene()
     {
         free(plaszczyzna);

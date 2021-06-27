@@ -3,7 +3,7 @@ using namespace std;
 
 /*Fuckja buduje prostopadłościan. Przyjmuje wektor zawierający współrzędne jednego z punktów.
 A następnie wysokość, długość przekatnej i długość prostopadłościanu (wpisywane standardowym wejściem).
-Na podstawie tych danych oblicza współrzędne pozostałych pkt1chołków*/
+Na podstawie tych danych oblicza współrzędne pozostałych wierzchołków*/
 Cuboid::Cuboid(Vector3D srodek, double x,double y, double z,std::string nazwa)
 {
     double tab[]={x,y,z};
