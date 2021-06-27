@@ -1,6 +1,25 @@
 #include "Scene.hh"
 using namespace std;
 
+/*!
+    \brief
+    *Funkcja Rysuj
+    Rysuje scene przy pomocy łącza.
+    * 
+*/
+void Scene::Rysuj()
+{
+    Lacze.Rysuj();
+}
+
+
+/*!
+    \brief
+    *Konstruktor sceny
+    *Ustawia zakres sceny (-300 - 300). Następnie tworzy płaszczyzne w postaci siatki na przestrzeni OX x OY. Później ustawia przeszkody w losowo wygenerowanym miejscu oraz drony.
+
+*/
+
 Scene::Scene()
 {
     Vector<3> srod;
@@ -12,7 +31,7 @@ Scene::Scene()
 
     double tab_wymiary[3] = {600, 600, 0};
     Vector<3> kwadrat(tab_wymiary);
-    plaszczyzna = new Ground(kwadrat, 20);
+    plaszczyzna = new Ground(kwadrat, 20); //nowa płaszczyzna
 
     /*ustalanie losowanej pozycji klasy Hill*/
     srod[0] = rand() % 400 - 200;
@@ -37,12 +56,19 @@ Scene::Scene()
 
     /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
     lista.push_front(std::make_shared<Pyramid>(srod, 100, 50, 100, "../datasets/blok3.dat"));
+    /*ustalanie losowanej pozycji klasy Prism2*/
+    srod[0] = rand() % 400 - 200;
+    srod[1] = rand() % 400 - 200;
+    srod[2] = 50;
+
+    /*dzięki funkcji push_front obiekt jest wypychany na pocżatek listy bloków*/
+    lista.push_front(std::make_shared<Pyramid>(srod, 100, 50, 100, "../datasets/blok4.dat"));
 
     /*Zwracanie wskaźnika do peirwszego elementu listy. Dzięki inkrementacji możliwe jest przejście po wszystkich elementach*/
     for (std::list<std::shared_ptr<GeoSolid>>::const_iterator i = lista.begin(); i != lista.end(); i++)
     {
         Lacze.DodajNazwePliku((*i)->wez_nazwe().c_str(), PzG::RR_Ciagly, 2);
-        (*i)->zapisz(); //zapisuje elements
+        (*i)->zapisz(); //zapisuje elementy
     }
 
     Lacze.DodajNazwePliku(plaszczyzna->wez_nazwe().c_str(), PzG::RR_Ciagly, 2);
@@ -50,23 +76,26 @@ Scene::Scene()
     for (int i = 0; i < 2; i++)
     {
         double pozycja[3]{(double)(rand() % 220 - 110), (double)(rand() % 22 - 110), 25};
-        TabDronow[i] = new Drone(i, Lacze, pozycja);
+        TabDronow[i] = new Drone(i, Lacze, pozycja); //nowe drony
         TabDronow[i]->zapisz();
     }
     Lacze.Rysuj();
     numer_przeszkody = 4;
 }
 
-void Scene::Rysuj()
-{
-    Lacze.Rysuj();
-}
+
+/*!
+    \brief
+    *Funkja menu -  odpowiada za wybór użytkownika
+    *Gdy użytkownik wybierze opcję a - ma do wyboru jednego z dwóch aktywnych dronów (0,1). Dla numerów 1,2 - program umożliwia sterowanie dronem za pomocą funkcji sterowanie
+    *Gdy użytkownik wybierze opcję b - może on dodać dowolną przeszkodę z zaproponowanych  - prostopadłościan, ostrosłup lub graniastosłup. 
+*/
 
 bool Scene::menu()
 {
     cout << "a - wybierz aktywnego drona" << endl;
     cout << "b - dodaj przeszkodę" << endl;
-    //cout << "c - usun przeszkodę" << endl;
+
     cout << "Inny numer konczy program" << endl;
     char opcja;
     cin >> opcja;
@@ -92,7 +121,7 @@ bool Scene::menu()
         cout << "Wybierz element, który chcesz dodać" << endl;
         cout << "1 - prostopadloscian" << endl;
         cout << "2 - ostrosłup" << endl;
-        cout << "3 - nieregularny" << endl;
+        cout << "3 - graniastosłup" << endl;
 
         int nr;
         cin >> nr;
@@ -101,7 +130,7 @@ bool Scene::menu()
         srod[0] = rand() % 400 - 200;
         srod[1] = rand() % 400 - 200;
         srod[2] = 50;
-
+ /*wybór przeszkody do dodania*/
         if (nr == 1)
         {
 
@@ -123,30 +152,6 @@ bool Scene::menu()
     }
 
     break;
-
-    // case 'c':
-    // {
-    //     //int i = 0;
-    //     // for (std::list<std::shared_ptr<GeoSolid>>::const_iterator a = lista.begin(); a != lista.end(); a++)
-    //     // {
-    //     //     cout << i << ": " << (*a)->wez_nazwe() << endl;
-    //     //     i++;
-    //     // }
-    //     cout << "Podaj numer bryły do usunięcia (1,2,3 itd..)" << endl;
-
-    //     int nr;
-    //     cin >> nr;
-    //     std::list<std::shared_ptr<GeoSolid>>::const_iterator a = lista.begin();
-
-    //     for (int j = 0; j < nr; j++)
-    //     {
-
-    //         a++;
-    //     }
-    //     //Lacze.UsunNazwePliku("..datasets/blok1.dat");
-    //     lista.erase(a);
-    // }
-    // break;
 
     default:
     {

@@ -3,7 +3,7 @@
 #include "Cuboid.hh"
 #include "Prism.hh"
 #include <unistd.h> // biblioteka dla usleep
-#define CZAS 20000
+#define CZAS 10000
 
 
 class Drone

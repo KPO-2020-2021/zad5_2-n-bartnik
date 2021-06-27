@@ -1,6 +1,9 @@
 #include "Pyramid.hh"
+/*!
+    \brief
+/Konstruktor bryły ostrosłupu oparty na konstruktorze prostopadłościanu. Przyjmuje wektor środka, współrzędne X, Y, Z oraz nazwę pliku do zapisu. Na podstawie środka tworzy kolejne wierzchołki i za pomocą
+* funkcji push_back wysyła punkty do kontenera wektora*/
 
-//KOnstruktor bryły ostrosłupu oparty na konstruktorze prostopadloscianu*/
 Pyramid::Pyramid(Vector3D srodek, double x,double y, double z,std::string NazwaPlikuPis)
 {
     double tab[]={x,y,z};
@@ -51,6 +54,10 @@ Pyramid::Pyramid(Vector3D srodek, double x,double y, double z,std::string NazwaP
   punkt[2]=srodek[2]-(z/2);
   pkt1.push_back(punkt);
 }
+
+/*!
+    \brief
+    KOnstruktor kopiujący Pyramid. Przyjmuje pr i przypisuje do niego każdą składową klasy*/
 
 Pyramid::Pyramid( Pyramid& pr )
 {
